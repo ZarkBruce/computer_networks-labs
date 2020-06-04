@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>计算机网络大实验简介 · 计算机网络labs</title>
+        <title>VLAN交换技术 · 计算机网络labs</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,7 +21,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
                 
             
                 
@@ -115,7 +115,7 @@
                 <a href="readme.html">
             
                     
-                    计算机网络大实验简介
+                    VLAN交换技术
             
                 </a>
             
@@ -129,7 +129,7 @@
                 <a href="ch01.html">
             
                     
-                    chapter1.1:代码实现
+                    chapter1.1:VLAN综述
             
                 </a>
             
@@ -142,7 +142,7 @@
                 <a href="ch02.html">
             
                     
-                    chapter1.2:实验原理
+                    chapter1.2:VLAN实验
             
                 </a>
             
@@ -185,7 +185,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >计算机网络大实验简介</a>
+        <a href=".." >VLAN交换技术</a>
     </h1>
 </div>
 
@@ -200,14 +200,22 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x5927;&#x5B9E;&#x9A8C;&#x7B80;&#x4ECB;">&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x5927;&#x5B9E;&#x9A8C;&#x7B80;&#x4ECB;</h1>
-<p>&#x672C;&#x6B21;&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x5B9E;&#x9A8C;&#x5171;&#x5305;&#x62EC;&#x516D;&#x4E2A;&#x90E8;&#x5206;</p>
-<h2 id="&#x5B9E;&#x9A8C;1">&#x5B9E;&#x9A8C;1</h2>
-<h2 id="&#x5B9E;&#x9A8C;2">&#x5B9E;&#x9A8C;2</h2>
-<h2 id="&#x5B9E;&#x9A8C;3">&#x5B9E;&#x9A8C;3</h2>
-<h2 id="&#x5B9E;&#x9A8C;4">&#x5B9E;&#x9A8C;4</h2>
-<h2 id="&#x5B9E;&#x9A8C;5">&#x5B9E;&#x9A8C;5</h2>
-<h2 id="&#x5B9E;&#x9A8C;&#x516D;">&#x5B9E;&#x9A8C;&#x516D;</h2>
+                                <h1 id="vlan&#x4EA4;&#x6362;&#x6280;&#x672F;">VLAN&#x4EA4;&#x6362;&#x6280;&#x672F;</h1>
+<p>&#x672C;&#x7AE0;&#x5185;&#x5BB9;&#x4E3B;&#x8981;&#x5305;&#x62EC;VLAN&#x7EFC;&#x8FF0;&#xFF0C;VLAN&#x5B9E;&#x9A8C;&#x7B49;&#x51E0;&#x4E2A;&#x90E8;&#x5206;&#x3002;</p>
+<h2 id="vlan&#x7EFC;&#x8FF0;">VLAN&#x7EFC;&#x8FF0;</h2>
+<ul>
+<li>VLAN&#x5F15;&#x5165;&#x7684;&#x80CC;&#x666F;</li>
+<li>VLAN&#x7684;&#x5B9E;&#x73B0;&#x673A;&#x5236;</li>
+<li>&#x4E0D;&#x540C;VLAN&#x95F4;&#x901A;&#x4FE1;</li>
+<li>&#x4E0D;&#x540C;&#x4EA4;&#x6362;&#x673A;&#x95F4;&#x540C;&#x4E00;VLAN&#x7684;&#x901A;&#x4FE1;&#x65B9;&#x5F0F;&#x53CA;&#x5229;&#x5F0A;<ul>
+<li>&#x65B9;&#x5F0F;1&#xFF1A;&#x4E0D;&#x540C;&#x4EA4;&#x6362;&#x673A;&#x7684;&#x76F8;&#x540C;vlan&#x5404;&#x53D6;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF08;VLAN&#x6570;&#x76EE;&#x8F83;&#x5C11;&#x65F6;&#xFF09;</li>
+<li>&#x65B9;&#x5F0F;2&#xFF1A;VLAN trunking&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF08;&#x4E3B;&#x6D41;VLAN&#x901A;&#x4FE1;&#x65B9;&#x5F0F;&#xFF09;</li>
+</ul>
+</li>
+<li>VLAN trunking&#x5982;&#x4F55;&#x5728;trunk port&#x8FDB;&#x884C;VLAN&#x8BC6;&#x522B;:IEEE 802.1Q Standard</li>
+</ul>
+<h2 id="vlan&#x5B9E;&#x9A8C;">VLAN&#x5B9E;&#x9A8C;</h2>
+<p>&#x4F7F;&#x7528;&#x4E24;&#x53F0;&#x4EA4;&#x6362;&#x673A;&#x5212;&#x5206;&#x51FA;&#x4E24;&#x4E2A;VLAN,&#x5206;&#x522B;&#x5C5E;&#x4E8E;&#x91D1;&#x878D;&#x90E8;&#x95E8;&#x548C;&#x9500;&#x552E;&#x90E8;&#x95E8;&#xFF0C;&#x5176;&#x4E2D;PC1&#x4E0E;PC3&#x5C5E;&#x4E8E;&#x91D1;&#x878D;&#x90E8;&#x95E8;&#xFF0C;PC2&#x4E0E;PC4&#x5C5E;&#x4E8E;&#x9500;&#x552E;&#x90E8;&#x95E8;&#x3002; </p>
 
                                 
                                 </section>
@@ -240,7 +248,7 @@
                 </a>
                 
                 
-                <a href="ch01.html" class="navigation navigation-next " aria-label="Next page: chapter1.1:代码实现">
+                <a href="ch01.html" class="navigation navigation-next " aria-label="Next page: chapter1.1:VLAN综述">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -251,7 +259,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"计算机网络大实验简介","level":"1.2","depth":1,"next":{"title":"chapter1.1:代码实现","level":"1.2.1","depth":2,"path":"chapter1/ch01.md","ref":"chapter1/ch01.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","prism","-highlight","code","-lunr","-search","search-pro"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-vsc-dark-plus.css"],"lang":{"flow":"typescript"}},"code":{"copyButtons":true},"katex":{},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"高海波","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机网络labs","language":"zh-hans","gitbook":"*","description":"computer network labs"},"file":{"path":"chapter1/readme.md","mtime":"2020-05-28T05:23:24.180Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-28T11:32:47.850Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"VLAN交换技术","level":"1.2","depth":1,"next":{"title":"chapter1.1:VLAN综述","level":"1.2.1","depth":2,"path":"chapter1/ch01.md","ref":"chapter1/ch01.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","prism","-highlight","code","-lunr","-search","search-pro"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"flow":"typescript"}},"code":{"copyButtons":true},"katex":{},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"高海波","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机网络labs","language":"zh-hans","gitbook":"*","description":"computer network labs"},"file":{"path":"chapter1/readme.md","mtime":"2020-06-04T11:55:38.329Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-04T13:56:18.902Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>chapter1.2:实验原理 · 计算机网络labs</title>
+        <title>chapter1.2:VLAN实验 · 计算机网络labs</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,7 +21,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
                 
             
                 
@@ -113,7 +113,7 @@
                 <a href="readme.html">
             
                     
-                    计算机网络大实验简介
+                    VLAN交换技术
             
                 </a>
             
@@ -127,7 +127,7 @@
                 <a href="ch01.html">
             
                     
-                    chapter1.1:代码实现
+                    chapter1.1:VLAN综述
             
                 </a>
             
@@ -140,7 +140,7 @@
                 <a href="ch02.html">
             
                     
-                    chapter1.2:实验原理
+                    chapter1.2:VLAN实验
             
                 </a>
             
@@ -183,7 +183,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >chapter1.2:实验原理</a>
+        <a href=".." >chapter1.2:VLAN实验</a>
     </h1>
 </div>
 
@@ -198,7 +198,85 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="chapter12&#x5B9E;&#x9A8C;&#x539F;&#x7406;">chapter1.2:&#x5B9E;&#x9A8C;&#x539F;&#x7406;</h1>
+                                <h1 id="chapter12vlan&#x5B9E;&#x9A8C;">chapter1.2:VLAN&#x5B9E;&#x9A8C;</h1>
+<h2 id="&#x5B9E;&#x9A8C;&#x76EE;&#x7684;">&#x5B9E;&#x9A8C;&#x76EE;&#x7684;</h2>
+<p>&#x4F7F;&#x7528;&#x4E24;&#x53F0;&#x4EA4;&#x6362;&#x673A;&#x5212;&#x5206;&#x51FA;&#x4E24;&#x4E2A;VLAN,&#x5206;&#x522B;&#x5C5E;&#x4E8E;&#x91D1;&#x878D;&#x90E8;&#x95E8;&#x548C;&#x9500;&#x552E;&#x90E8;&#x95E8;&#xFF0C;&#x5176;&#x4E2D;PC1&#x4E0E;PC3&#x5C5E;&#x4E8E;&#x91D1;&#x878D;&#x90E8;&#x95E8;(VLAN 2)&#xFF0C;PC2&#x4E0E;PC4&#x5C5E;&#x4E8E;&#x9500;&#x552E;&#x90E8;&#x95E8;(VLAN 3)&#x3002; </p>
+<h2 id="&#x5B9E;&#x9A8C;&#x73AF;&#x5883;&#x914D;&#x7F6E;">&#x5B9E;&#x9A8C;&#x73AF;&#x5883;&#x914D;&#x7F6E;</h2>
+<ol>
+<li><p>&#x4EA4;&#x6362;&#x673A;2960-24TT&#x914D;&#x7F6E;    </p>
+<p>step 1:&#x82E5;&#x4EA4;&#x6362;&#x673A;&#x5728;&#x4E4B;&#x524D;&#x914D;&#x7F6E;&#x8FC7;&#xFF0C;&#x5219;&#x6E05;&#x9664;&#x6240;&#x6709;&#x914D;&#x7F6E;&#xFF0C;&#x5E76;&#x5728;shutdown&#x72B6;&#x6001;&#x4E0B;&#x521D;&#x59CB;&#x5316;&#x6240;&#x6709;&#x7AEF;&#x53E3;&#x3002;</p>
+<pre class="language-"><code class="lang-shell">Switch&gt;enable
+Switch#config terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#interface range fa0/1-24
+Switch(config-if-range)#shutdown
+Switch(config-if-range)#interface range gi0/1-2
+Switch(config-if-range)#shutdown
+</code></pre>
+<p>step 2:&#x7ED9;VALN&#x6307;&#x5B9A;&#x4E00;&#x4E2A;ID&#xFF0C;&#x5E76;&#x547D;&#x540D;&#x3002;</p>
+<pre class="language-"><code class="lang-shell">Switch(config)#vlan 2
+Switch(config-vlan)#name finance
+Switch(config)#vlan 3
+Switch(config-vlan)#name sales
+</code></pre>
+<p>step 3:&#x7ED9;VLAN&#x5206;&#x914D;&#x7AEF;&#x53E3;,fastEthernet0/1&#x4E3A;VLAN 2&#x7AEF;&#x53E3;&#xFF0C;fastEthernet0/2&#x4E3A;VLAN 3&#x7AEF;&#x53E3;&#x3002;</p>
+<pre class="language-"><code class="lang-shell">Switch(config)#interface fastEthernet0/1
+Switch(config-if)#switchport access vlan 2
+Switch(config-if)#interface fastEthernet0/2
+Switch(config-if)#switchport access vlan 3
+</code></pre>
+<p>step 4:&#x7ED9;vlan&#x5206;&#x914D;fastEthernet0/24&#x7AEF;&#x53E3;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A;trunk port.</p>
+<pre class="language-"><code class="lang-shell">Switch(config)#interface fastEthernet0/24
+Switch(config-if)#switchport mode trunk
+</code></pre>
+<p>step 5:&#x8BBE;&#x7F6E;&#x5141;&#x8BB8;&#x901A;&#x8FC7;trunk port&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x7684;VLAN</p>
+<pre class="language-"><code class="lang-shell">Switch(config-if)#switchport trunk allowed vlan 2-3
+</code></pre>
+<p>step 6:&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x8BBE;&#x7F6E;&#xFF0C;&#x4EA4;&#x6362;&#x673A;&#x5173;&#x673A;&#x91CD;&#x542F;&#x540E;&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x8BBE;&#x7F6E;&#x3002;</p>
+<pre class="language-"><code class="lang-shell">Switch# copy running-config startup-config
+</code></pre>
+</li>
+<li><p>PC&#x7AEF;&#x914D;&#x7F6E;</p>
+<ul>
+<li>PC1(IP:192.168.1.2 submask:255.255.255.0 gateway:192.168.1.1)</li>
+<li>PC2(IP:192.168.1.3 submask:255.255.255.0 gateway:192.168.1.1)</li>
+<li>PC3(IP:192.168.1.4 submask:255.255.255.0 gateway:192.168.1.1)</li>
+<li>PC4(IP:192.168.1.5 submask:255.255.255.0 gateway:192.168.1.1)</li>
+</ul>
+</li>
+<li><p>&#x5B9E;&#x9A8C;&#x7ED3;&#x679C;  </p>
+</li>
+</ol>
+<p>PC1 PING 192.168.1.3[&#x4E0D;&#x540C;VLAN]</p>
+<pre class="language-"><code class="lang-shell">
+Packet Tracer PC Command Line 1.0
+C:\&gt;PING 192.168.1.3
+
+Pinging 192.168.1.3 with 32 bytes of data:
+
+Request timed out.
+Request timed out.
+Request timed out.
+Request timed out.
+
+Ping statistics for 192.168.1.3:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+</code></pre>
+<p>PC1 PING 192.168.1.4[&#x76F8;&#x540C;VLAN]</p>
+<pre class="language-"><code class="lang-shell">C:\&gt;ping 192.168.1.4
+
+Pinging 192.168.1.4 with 32 bytes of data:
+
+Reply from 192.168.1.4: bytes=32 time=1ms TTL=128
+Reply from 192.168.1.4: bytes=32 time&lt;1ms TTL=128
+Reply from 192.168.1.4: bytes=32 time&lt;1ms TTL=128
+Reply from 192.168.1.4: bytes=32 time&lt;1ms TTL=128
+
+Ping statistics for 192.168.1.4:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 1ms, Average = 0ms
+</code></pre>
 
                                 
                                 </section>
@@ -226,7 +304,7 @@
 
             
                 
-                <a href="ch01.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: chapter1.1:代码实现">
+                <a href="ch01.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: chapter1.1:VLAN综述">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -238,7 +316,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"chapter1.2:实验原理","level":"1.2.2","depth":2,"previous":{"title":"chapter1.1:代码实现","level":"1.2.1","depth":2,"path":"chapter1/ch01.md","ref":"chapter1/ch01.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","prism","-highlight","code","-lunr","-search","search-pro"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-vsc-dark-plus.css"],"lang":{"flow":"typescript"}},"code":{"copyButtons":true},"katex":{},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"高海波","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机网络labs","language":"zh-hans","gitbook":"*","description":"computer network labs"},"file":{"path":"chapter1/ch02.md","mtime":"2020-05-28T05:21:37.335Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-28T11:32:47.850Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"chapter1.2:VLAN实验","level":"1.2.2","depth":2,"previous":{"title":"chapter1.1:VLAN综述","level":"1.2.1","depth":2,"path":"chapter1/ch01.md","ref":"chapter1/ch01.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","prism","-highlight","code","-lunr","-search","search-pro"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"flow":"typescript"}},"code":{"copyButtons":true},"katex":{},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"高海波","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机网络labs","language":"zh-hans","gitbook":"*","description":"computer network labs"},"file":{"path":"chapter1/ch02.md","mtime":"2020-06-04T13:53:25.579Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-04T13:56:18.902Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
