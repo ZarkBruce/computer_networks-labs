@@ -1,0 +1,355 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>chapter1.4：实验任务一 · 计算机网络labs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="高海波">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="ch03.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    VLAN交换技术
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="ch01.html">
+            
+                <a href="ch01.html">
+            
+                    
+                    chapter1.1:VLAN综述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="ch02.html">
+            
+                <a href="ch02.html">
+            
+                    
+                    chapter1.2:VLAN实验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="ch03.html">
+            
+                <a href="ch03.html">
+            
+                    
+                    chapter1.3:生成树协议STP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4" data-path="ch04.html">
+            
+                <a href="ch04.html">
+            
+                    
+                    chapter1.4：实验任务一
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >chapter1.4：实验任务一</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="chapter14&#xFF1A;&#x5B9E;&#x9A8C;&#x4EFB;&#x52A1;&#x4E00;">chapter1.4&#xFF1A;&#x5B9E;&#x9A8C;&#x4EFB;&#x52A1;&#x4E00;</h1>
+<h2 id="&#x5B9E;&#x9A8C;&#x76EE;&#x7684;">&#x5B9E;&#x9A8C;&#x76EE;&#x7684;</h2>
+<ul>
+<li>&#x5B9E;&#x73B0;&#x8BBE;&#x5907;&#xFF1A;2950T-24&#x4EA4;&#x6362;&#x673A;&#x4E00;&#x53F0;&#xFF0C;2950-24&#x4EA4;&#x6362;&#x673A;&#x4E24;&#x53F0;&#xFF0C;PC&#x516D;&#x53F0;</li>
+<li>&#x4F7F;&#x7528;&#x4EA4;&#x6362;&#x673A;&#x5212;&#x5206;&#x51FA;3&#x4E2A;&#x865A;&#x62DF;&#x5C40;&#x57DF;&#x7F51;&#x7EDC;&#xFF0C;&#x5206;&#x522B;&#x4E3A;VLAN 10,VLAN 20&#x4EE5;&#x53CA;VLAN 30,&#x9A8C;&#x8BC1;VLAN&#x95F4;&#x901A;&#x4FE1;&#x3002;</li>
+<li>VLAN 10&#x63A5;&#x5165;PC(A1,A2),VLAN 20&#x63A5;&#x5165;pc(B1,B2),VLAN 30&#x63A5;&#x5165;pc(C1,C2)</li>
+<li>&#x9A8C;&#x8BC1;&#x751F;&#x6210;&#x6811;&#x534F;&#x8BAE;STP&#x4F5C;&#x7528;&#x3002;</li>
+</ul>
+<h2 id="&#x5B9E;&#x9A8C;&#x73AF;&#x5883;&#x914D;&#x7F6E;">&#x5B9E;&#x9A8C;&#x73AF;&#x5883;&#x914D;&#x7F6E;</h2>
+<p><img src="chapter1/img/stp.png" alt="spanning tree protocal"></p>
+<h3 id="&#x914D;&#x7F6E;&#x4EA4;&#x6362;&#x673A;&#x5212;&#x5206;vlan">&#x914D;&#x7F6E;&#x4EA4;&#x6362;&#x673A;&#x5212;&#x5206;vlan</h3>
+<p>1.&#x5BF9;&#x4EA4;&#x6362;&#x673A;0&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#xFF08;&#x5212;&#x5206;&#x4E3A;vlan 10&#x4E0E;vlan 30)</p>
+<p>step1:&#x7ED9;VLAN&#x6307;&#x5B9A;&#x4E00;&#x4E2A;ID&#xFF0C;&#x5E76;&#x547D;&#x540D;</p>
+<pre class="language-"><code class="lang-bash">Switch<span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token comment">#vlan 10</span>
+Switch<span class="token punctuation">(</span>config-vlan<span class="token punctuation">)</span><span class="token comment">#name A</span>
+Switch<span class="token punctuation">(</span>config-vlan<span class="token punctuation">)</span><span class="token comment">#exit</span>
+Switch<span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token comment">#vlan 30</span>
+Switch<span class="token punctuation">(</span>config-vlan<span class="token punctuation">)</span><span class="token comment">#name C</span>
+Switch<span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token comment">#vlan 20</span>
+Switch<span class="token punctuation">(</span>config-vlan<span class="token punctuation">)</span><span class="token comment">#name B</span>
+</code></pre>
+<p>step2:&#x7ED9;VLAN&#x5206;&#x914D;&#x7AEF;&#x53E3;,fastEthernet0/1&#x4E3A;VLAN 10&#x7AEF;&#x53E3;&#xFF0C;fastEthernet0/3&#x4E3A;VLAN 30&#x7AEF;&#x53E3;&#x3002;</p>
+<pre class="language-"><code class="lang-shell">Switch<span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token comment">#interface fastEthernet0/1</span>
+Switch<span class="token punctuation">(</span>config-if<span class="token punctuation">)</span><span class="token comment">#switchport access vlan 10</span>
+Switch<span class="token punctuation">(</span>config-if<span class="token punctuation">)</span><span class="token comment">#exit</span>
+Switch<span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token comment">#interface fastEthernet0/3</span>
+Switch<span class="token punctuation">(</span>config-if<span class="token punctuation">)</span><span class="token comment">#switchport access vlan 30</span>
+</code></pre>
+<p>step3:&#x7ED9;vlan&#x5206;&#x914D;fastEthernet0/22&#x4E0E;fastEthernet0/24&#x7AEF;&#x53E3;&#xFF0C;&#x5E76;&#x5C06;&#x5B83;&#x4EEC;&#x8BBE;&#x7F6E;&#x4E3A;trunk port.</p>
+<pre class="language-"><code class="lang-shell">Switch<span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token comment">#interface fastEthernet0/22</span>
+Switch<span class="token punctuation">(</span>config-if<span class="token punctuation">)</span><span class="token comment">#switchport mode trunk</span>
+Switch<span class="token punctuation">(</span>config-if<span class="token punctuation">)</span><span class="token comment">#exit</span>
+Switch<span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token comment">#interface fastEthernet0/24</span>
+Switch<span class="token punctuation">(</span>config-if<span class="token punctuation">)</span><span class="token comment">#switchport mode trunk</span>
+</code></pre>
+<p>step4:&#x9009;&#x62E9;&#x751F;&#x6210;&#x6811;&#x6A21;&#x5F0F;</p>
+<pre class="language-"><code class="lang-shell">Switch<span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token comment">#spanning-tree mode rapid-pvst</span>
+</code></pre>
+<p>step5:&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x8BBE;&#x7F6E;&#xFF0C;&#x4EA4;&#x6362;&#x673A;&#x5173;&#x673A;&#x91CD;&#x542F;&#x540E;&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x8BBE;&#x7F6E;&#x3002;</p>
+<pre class="language-"><code class="lang-shell">Switch<span class="token comment">#copy running-config startup-config</span>
+</code></pre>
+<p>2.&#x5BF9;&#x4EA4;&#x6362;&#x673A;1&#x8FDB;&#x884C;&#x914D;&#x7F6E;    </p>
+<p>&#x8F83;&#x4EA4;&#x6362;&#x673A;0&#x4EC5;&#x9700;&#x4FEE;&#x6539;step2,3&#x4E0E;step4.  </p>
+<pre class="language-"><code class="lang-shell">Switch<span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token comment">#interface fastEthernet0/1</span>
+Switch<span class="token punctuation">(</span>config-if<span class="token punctuation">)</span><span class="token comment">#switchport access vlan 10</span>
+Switch<span class="token punctuation">(</span>config-if<span class="token punctuation">)</span><span class="token comment">#exit</span>
+Switch<span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token comment">#interface fastEthernet0/2</span>
+Switch<span class="token punctuation">(</span>config-if<span class="token punctuation">)</span><span class="token comment">#switchport access vlan 20</span>
+</code></pre>
+<pre class="language-"><code class="lang-shell">Switch<span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token comment">#interface fastEthernet0/22</span>
+Switch<span class="token punctuation">(</span>config-if<span class="token punctuation">)</span><span class="token comment">#switchport mode trunk</span>
+Switch<span class="token punctuation">(</span>config-if<span class="token punctuation">)</span><span class="token comment">#exit</span>
+Switch<span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token comment">#interface fastEthernet0/23</span>
+Switch<span class="token punctuation">(</span>config-if<span class="token punctuation">)</span><span class="token comment">#switchport mode trunk</span>
+</code></pre>
+<pre class="language-"><code class="lang-shell">Switch<span class="token punctuation">(</span>config-if<span class="token punctuation">)</span><span class="token comment">#switchport trunk allowed vlan 10,20</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ch03.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: chapter1.3:生成树协议STP">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"chapter1.4：实验任务一","level":"1.2.4","depth":2,"previous":{"title":"chapter1.3:生成树协议STP","level":"1.2.3","depth":2,"path":"chapter1/ch03.md","ref":"chapter1/ch03.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","prism","-highlight","code","-lunr","-search","search-pro"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"flow":"typescript"}},"code":{"copyButtons":true},"katex":{},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"高海波","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机网络labs","language":"zh-hans","gitbook":"*","description":"computer network labs"},"file":{"path":"chapter1/ch04.md","mtime":"2020-06-06T13:06:38.894Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-06T14:03:10.010Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
